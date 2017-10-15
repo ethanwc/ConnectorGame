@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 //todo repaint from badlayout, add shape to connectors
-
+//test2
 public class Game extends JPanel {
     JFrame window;
     JPanel panelBottom, panelTop;
     BoardPanel panelBoard;
     Pieces start, end, intersection, reflect, corner;
-    int x,y;
+    int x,y,z;
 
 
     public Game() {
