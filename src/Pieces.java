@@ -81,7 +81,7 @@ public class Pieces {
             g2.setStroke(new BasicStroke(10));
             g2.drawLine(x1,y2/2,x2,y2/2);
             g2.drawLine(x2/2,0,x2/2,y2);
-            JOptionPane.showMessageDialog(null,"AASDF");
+            JOptionPane.showMessageDialog(null,"AADDDSDF");
 
         }
     }
