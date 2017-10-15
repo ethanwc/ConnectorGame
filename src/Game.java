@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 //todo repaint from badlayout, add shape to connectors
-//test2
+//test23
 public class Game extends JPanel {
     JFrame window;
     JPanel panelBottom, panelTop;
