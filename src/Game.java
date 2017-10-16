@@ -8,14 +8,15 @@ public class Game extends JPanel {
     JPanel panelBottom, panelTop;
     BoardPanel panelBoard;
     Pieces start, end, intersection, reflect, corner;
+    JButton test;
     int x,y,z;
-
 
     public Game() {
         window = new JFrame();
         panelBoard = new BoardPanel();
         panelBottom = new JPanel();
         panelTop = new JPanel();
+        test = new JButton();
     }
 
     public void run() {
@@ -27,6 +28,7 @@ public class Game extends JPanel {
         panelBottom.setBackground(Color.green);
 
         window.add(panelBoard, BorderLayout.CENTER);
+        panelBoard.add(test);
         window.add(panelTop, BorderLayout.NORTH);
         window.add(panelBottom, BorderLayout.SOUTH);
 
@@ -46,9 +48,17 @@ public class Game extends JPanel {
     }
 
     public static void main(String[] args) {
+
         Pieces.Start intersection = new Pieces.Start(1,1,100,100,Color.red);
         Pieces.pieces.add(intersection);
         Game bad = new Game();
         bad.run();
     }
+    test.addActionListener(new ActionListener()
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            System.out.print("asdf");
+        }
+    });
 }
