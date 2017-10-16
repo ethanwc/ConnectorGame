@@ -73,16 +73,5 @@ public class Pieces {
             this.y2 = y2;
             this.color = color;
         }
-        //paints the intersection piece
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            Graphics2D g2 = (Graphics2D) g;
-            g2.setColor(color);
-            g2.setStroke(new BasicStroke(10));
-            g2.drawLine(x1,y2/2,x2,y2/2);
-            g2.drawLine(x2/2,0,x2/2,y2);
-            JOptionPane.showMessageDialog(null,"AADDDSDF");
-
-        }
     }
 }
