@@ -8,7 +8,13 @@ public class Game extends JFrame {
     public JPanel panelBoard = new JPanel();
     public JPanel panelBottom = new JPanel();
     public JButton test = new JButton();
-//    public Pieces start, end, intersection, reflect, corner;
+
+    public Pieces start, end, intersection, reflect, corner;
+
+    //TODO
+    //use gridbaglayout to make a 3x3 area on the boardPanel then add shapes to it.
+    //Subclasses of each shape in pieces class, create a new "shape, shape type" then just draw it.
+
 
     public int x,y,z;
 
@@ -24,7 +30,6 @@ public class Game extends JFrame {
         panelTop.setBackground(Color.red);
         panelBoard.setBackground(Color.BLACK);
         panelBottom.setBackground(Color.green);
-
 
         add(panelBoard, BorderLayout.CENTER);
         add(panelTop, BorderLayout.NORTH);
@@ -47,7 +52,6 @@ public class Game extends JFrame {
                 repaint();
             }
         } );
-
     }
 
     public void paint(Graphics g) {
