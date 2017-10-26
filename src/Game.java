@@ -12,17 +12,11 @@ public class Game extends JFrame {
 
 
     public Game() {
-        /*
-          ShadowTest st = new ShadowTest();
-        ShadowTest.FirstLevel fl = st.new FirstLevel();
-        fl.methodInFirstLevel(23);
-         */
 
+        //im bad at inheritance allegedly
 
         Shapes st = new Shapes();
-
-        Shapes.Start test = st.new Start(new Rectangle(0,0,1000,1000),1,1,Color.red);
-
+        Shapes.Start test = st.new Start(new Rectangle(1,1,1,1),1,1,Color.red);
         shapes.add(test);
 
         x = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
@@ -65,10 +59,7 @@ public class Game extends JFrame {
             Shapes test = shapes.get(i);
             Rectangle r = shapes.get(i).getRectangle();
             g2.draw(r);
-
         }
-
-
     }
 
     public static void main(String[] args) {

@@ -10,12 +10,12 @@ public class Shapes extends Game {
     public Color color;
 
     public Shapes() {
-
     }
 
     public Rectangle getRectangle() {
         return rectangle;
     }
+
 
     public class Start extends Shapes {
 
