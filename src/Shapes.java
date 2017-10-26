@@ -2,7 +2,7 @@ import java.awt.*;
 /**
  * Created by Ethan on 10/14/2017.
  */
-public class Shapes extends Game {
+public class Shapes {
 
     public Rectangle rectangle;
     public int x;
