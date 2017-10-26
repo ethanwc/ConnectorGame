@@ -1,28 +1,29 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.awt.event.*;
 
 public class Game extends JFrame {
     public JPanel panelTop = new JPanel();
     public JPanel panelBoard = new JPanel();
     public JPanel panelBottom = new JPanel();
-    public JButton test = new JButton();
-
-    public Pieces start, end, intersection, reflect, corner;
-
-    //TODO
-    //use gridbaglayout to make a 3x3 area on the boardPanel then add shapes to it.
-    //Subclasses of each shape in pieces class, create a new "shape, shape type" then just draw it.
-
-
+    public ArrayList<JPanel> panels = new ArrayList<>();
+    public ArrayList<Shapes> shapes = new ArrayList();
     public int x,y,z;
 
-    public static ArrayList<Shape> shapes = new ArrayList();
 
     public Game() {
-        shapes.add(new Rectangle(20,20,100,100));
-        shapes.add(new Rectangle(200,200,100,100));
+        /*
+          ShadowTest st = new ShadowTest();
+        ShadowTest.FirstLevel fl = st.new FirstLevel();
+        fl.methodInFirstLevel(23);
+         */
+
+
+        Shapes st = new Shapes();
+
+        Shapes.Start test = st.new Start(new Rectangle(0,0,1000,1000),1,1,Color.red);
+
+        shapes.add(test);
 
         x = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         y = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
@@ -34,7 +35,14 @@ public class Game extends JFrame {
         add(panelBoard, BorderLayout.CENTER);
         add(panelTop, BorderLayout.NORTH);
         add(panelBottom, BorderLayout.SOUTH);
-        panelBoard.add(test);
+        panelBoard.setLayout(new GridLayout(3,3));
+
+        for (int i = 0; i < 9; i++) {
+            JPanel panel = new JPanel();
+            panel.setBackground(Color.green);
+            panels.add(panel);
+            panelBoard.add(panels.get(i));
+        }
 
         setPreferredSize(new Dimension(x / 3, y));
         panelTop.setPreferredSize(new Dimension(x / 3, y / 5));
@@ -46,12 +54,6 @@ public class Game extends JFrame {
         setVisible(true);
         pack();
 
-        test.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                shapes.add(new Rectangle(100,100,2000,2000));
-                repaint();
-            }
-        } );
     }
 
     public void paint(Graphics g) {
@@ -60,12 +62,16 @@ public class Game extends JFrame {
         g2.setColor(Color.CYAN);
 
         for (int i = 0; i < shapes.size(); i++) {
-            g2.draw(shapes.get(i));
+            Shapes test = shapes.get(i);
+            Rectangle r = shapes.get(i).getRectangle();
+            g2.draw(r);
+
         }
+
+
     }
 
     public static void main(String[] args) {
-        shapes.add(new Rectangle(0,0,1000,1000));
         new Game();
     }
 }
