@@ -50,9 +50,13 @@ public class Game extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setStroke(new BasicStroke(12));
+        g2.setStroke(new BasicStroke(8));
 
 
+        for (int i = 0; i < panels.size(); i++) {
+            g2.setColor(new Color((int)(Math.random() *255),(int)(Math.random() *255),(int)(Math.random() *255)));
+            g2.fillRect(panels.get(i).getX() +3,panels.get(i).getY() + panelTop.getHeight() +26,panels.get(i).getWidth(),panels.get(i).getHeight());
+        }
 
         for (int i = 0; i < panels.size(); i++) {
             System.out.println(panels.size());
@@ -61,24 +65,36 @@ public class Game extends JFrame {
             //get cords returns 2 points
 
             g2.setColor(new Color((int)(Math.random() *255),(int)(Math.random() *255),(int)(Math.random() *255)));
-            g2.fillRect(panels.get(i).getX() +3,panels.get(i).getY() + panelTop.getHeight() +26,panels.get(i).getWidth(),panels.get(i).getHeight());
-            g2.setColor(new Color((int)(Math.random() *255),(int)(Math.random() *255),(int)(Math.random() *255)));
-            g2.drawLine(panels.get(i).getX(),panels.get(i).getY() + panelTop.getHeight() + 26,
-                    (int)panels.get(4).getLocation().getX() + panels.get(4).getWidth()/2,(int)panels.get(4).getLocation().getY() + panelTop.getHeight() + 26 + panels.get(4).getHeight()/2);
+
+            g2.drawLine(getX1(i),getY1(i),getX2(i),getY2(i));
+            g2.drawLine(getX1(i),getY2(i),getX2(i),getY1(i));
+            g2.drawOval(getX1(i),getY2(i),panels.get(i).getWidth(),panels.get(i).getHeight());
         }
 
-//        for (int i = 0; i < shapes.size(); i++) {
-//            g2.draw(shapes.get(i).getRectangle());
-//        }
     }
 
-    public Point[] getPanelCoords(int i) {
-        Point test[] = new Point[2];
-        test[0].x = 1;
-        test[0].y = 1;
-        //returns array of 2 points for btm left and top right of each panel... USEFUL
-        return test;
+    public int getX1(int i) {
+
+        int x1 = panels.get(i).getX();
+        return x1;
     }
+
+    public int getY1 (int i) {
+        int y1 = panels.get(i).getY() + panelTop.getHeight() + 26 + panels.get(i).getHeight();
+        return y1;
+    }
+
+    public int getX2 (int i) {
+        int x2 = (int) panels.get(i).getLocation().getX() + panels.get(i).getWidth();
+        return x2;
+    }
+
+    public int getY2 (int i) {
+        int y2 = (int) panels.get(i).getLocation().getY() + panelTop.getHeight() + 26;
+        return y2;
+    }
+
+
 
     public static void main(String[] args) {
         new Game();
